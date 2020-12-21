@@ -12,12 +12,13 @@ namespace Classes
             Usuario user = new Usuario();
             Logar(user);
             if (Logado){
+                GerarMenu();
 
             }
         }
 
         public void GerarMenu(){
-            Produto prod = new Produto();
+            Produto produto = new Produto();
             Marca marca= new Marca();
 
             string opcao = "n";
@@ -37,27 +38,32 @@ namespace Classes
                 switch (opcao)
                 {
                     case "1":
-                        prod.Cadastrar();
+                        produto.Cadastrar();
                         break;
                     case "2":
-                        prod.Listar();
+                        produto.Listar();
                         break;
                     case "3":
+                        Console.WriteLine("Digite um codigo para excluir :");
+                        int cod = int.Parse(Console.ReadLine());
+                        produto.Deletar(cod);
                         break;
                     case "4":
                         marca.CadastrarMarca();
                         break;
                     case "5":
+                        marca.Listar();
                         break;
                     case "6":
-                        break;
-
-                       
+                        Console.WriteLine("Digite um codigo para excluir :");
+                        int codMarca = int.Parse(Console.ReadLine());
+                        marca.Deletar(codMarca);
+                        break;   
                     default:
                         break;
                 }
                 
-            }
+            }while(opcao != "0");
         }
         
         public void Logar(Usuario usuario){
@@ -68,8 +74,11 @@ namespace Classes
             Console.WriteLine("Digite sua Senha: ");
             string senhaLogin = Console.ReadLine();
 
-            if(usuario.Email && senhaLogin == usuario.Senha)
-
+            if(emailLogin == usuario.Email && senhaLogin == usuario.Senha){
+                Logado = true;
+                Console.WriteLine("Login efetuado com sucesso!");
+            }else{
+                Console.WriteLine("Falha ao logar na aplicação");
             }
         }
         public void Deslogar(){

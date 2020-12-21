@@ -11,19 +11,19 @@ namespace Classes
 
         private DateTime DataCadastro { get; set; }
         
-        List<Marca> Marcas { get; set; }
+        public List<Marca> Marcas = new List<Marca>();
 
         public Marca CadastrarMarca(){
 
             Marca novaMarca = new Marca();
             
             Console.WriteLine("Digite o código da marca :");
-            Codigo = int.Parse(Console.ReadLine());
+            novaMarca.Codigo = int.Parse(Console.ReadLine());
 
             Console.WriteLine("Digite o nome da marca :");
-            NomeMarca = Console.ReadLine();
+            novaMarca.NomeMarca = Console.ReadLine();
 
-            DataCadastro = DateTime.UtcNow;
+            novaMarca.DataCadastro = DateTime.UtcNow;
 
             Marcas.Add(novaMarca);
 
@@ -41,7 +41,7 @@ namespace Classes
 
         }
         public void Deletar(int cod){
-            Marca marcaDelete = new Marcas.Find(m => m.Codigo == cod);
+            Marca marcaDelete = Marcas.Find(m => m.Codigo == cod);
             Marcas.Remove(marcaDelete);
            
         }

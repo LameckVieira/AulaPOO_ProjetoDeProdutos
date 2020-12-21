@@ -13,7 +13,8 @@ namespace Classes
         public DateTime DataCadastro { get; set; }
 
         public Marca Marca { get; set; }
-        public List<Produto> ListaDeProdutos { get; set; }
+        public Usuario CadastradoPor { get; set; }
+        public List<Produto> ListaDeProdutos = new List<Produto>();
         
         public void Cadastrar(){
             Produto novoProduto = new Produto();
@@ -24,7 +25,7 @@ namespace Classes
             Console.WriteLine("Digite o nome do produto: ");
             novoProduto.NomeProduto = Console.ReadLine();
 
-            Console.WriteLine("Digite o preço do produto ;");
+            Console.WriteLine("Digite o preço do produto :");
             novoProduto.Preco = float.Parse(Console.ReadLine());
 
             novoProduto.DataCadastro = DateTime.UtcNow;
@@ -49,7 +50,7 @@ namespace Classes
             Console.ResetColor();
 
         }
-        public void Delete(){
+        public void Deletar(int cod){
             Produto prodDelete = ListaDeProdutos.Find(p => p.Codigo == cod);
             ListaDeProdutos.Remove(prodDelete);
 
