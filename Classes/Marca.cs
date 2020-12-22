@@ -30,7 +30,7 @@ namespace Classes
             return novaMarca;
         }
         public void Listar(){
-            Console.WriteLine("MArcas cadastradas :");
+            Console.WriteLine("Marcas cadastradas :");
 
             foreach (Marca item in Marcas)
             {

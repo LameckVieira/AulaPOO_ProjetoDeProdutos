@@ -12,20 +12,22 @@ namespace Classes
 
         public DateTime DataCadastro { get; set; }
 
-        public Marca Marca { get; set; }
+        public Marca Marca = new Marca();
+
         public Usuario CadastradoPor { get; set; }
+
         public List<Produto> ListaDeProdutos = new List<Produto>();
         
         public void Cadastrar(){
             Produto novoProduto = new Produto();
 
-            Console.WriteLine("Digite o código do Produto :");
+            Console.WriteLine("Digite o código do Produto:");
             novoProduto.Codigo = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Digite o nome do produto: ");
+            Console.WriteLine("Digite o nome do produto:");
             novoProduto.NomeProduto = Console.ReadLine();
 
-            Console.WriteLine("Digite o preço do produto :");
+            Console.WriteLine("Digite o preço do produto:");
             novoProduto.Preco = float.Parse(Console.ReadLine());
 
             novoProduto.DataCadastro = DateTime.UtcNow;

@@ -24,6 +24,9 @@ namespace Classes
             string opcao = "n";
 
             do{
+                Console.WriteLine();
+                Console.WriteLine("--------Menu--------");
+                Console.WriteLine();
                 Console.WriteLine("Escolha uma Opção :");
                 Console.WriteLine("1 - Cadastrar Produtos");
                 Console.WriteLine("2 - Listar Produtos");
@@ -32,6 +35,7 @@ namespace Classes
                 Console.WriteLine("5 - Listar Marcas");
                 Console.WriteLine("6 - Deletar Marcas");
                 Console.WriteLine("0 - Sair da aplicação");
+                Console.WriteLine();
 
                 opcao = Console.ReadLine();
 
@@ -76,8 +80,10 @@ namespace Classes
 
             if(emailLogin == usuario.Email && senhaLogin == usuario.Senha){
                 Logado = true;
+                Console.WriteLine();
                 Console.WriteLine("Login efetuado com sucesso!");
             }else{
+                Console.WriteLine();
                 Console.WriteLine("Falha ao logar na aplicação");
             }
         }
